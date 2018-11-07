@@ -1,0 +1,879 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", Helvetica Neue,Helvetica,Arial,sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* NAVIGATION - MENU*/
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    float: right;
+    font-size: 3rem;
+    line-height: 1;
+    min-height: 40px;
+    min-width: 40px;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 999;
+    color: white;
+    left: 90vw;
+    top:60px;
+}
+.hamburger {
+    cursor: pointer;
+}
+
+.hamburger:before,
+.hamburger:after {
+    width:100%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: 50% 55%;
+    will-change: transform;
+}
+
+.hamburger:before {
+    content: url("./img/bars-solid.svg");
+}
+
+.hamburger:after {
+    content: url("./img/times-solid.svg");
+    width: 22px;
+    height: 22px;
+    transform-origin: 50% 85%;
+}
+
+.site-nav {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.9));
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    z-index: 2;
+
+    transform-origin: 0% 0%;
+    transform: translatey(-140%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.site-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top:70px;
+}
+
+.site-nav ul li {
+    font-size: 4em;
+    font-variant: all-small-caps;
+    padding: 1em;
+    text-align: center;
+    /* 	text-transform: uppercase; */
+    transition: all 0.15s;
+}
+
+.site-nav ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    transition: color 0.3s ease;
+}
+.site-nav ul li a:hover {
+    color: #3897f0;
+    font-weight: 600;
+}
+
+/* ANIMATIONS AND TRANSITIONS */
+
+.hamburger:after,
+.hamburger.active:before {
+    transform: scale(0.01) rotate(180deg);
+}
+
+.hamburger:before,
+.hamburger.active:after {
+    transform: scale(1) rotate(-180deg);
+}
+
+.hamburger.animatable:before,
+.hamburger.animatable:after {
+    transition: all 0.35s;
+}
+
+.site-nav.active {
+    transform: none;
+}
+
+.site-nav.animatable {
+    transition: all 0.15s;
+    transition: transform 0.7s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.site-nav.active.animatable {
+    transition: all 0.3s;
+    transition: transform 0.7s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+@media (max-width: 954px) {
+    .hamburger {
+        left: 85vw;
+        min-height: 40px;
+        min-width: 40px;
+    }
+    .site-nav ul li {
+        font-size: 2em;
+    }
+}
+
+/*HEADER SECTION*/
+
+header {
+    background:linear-gradient(20deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(./img/header.jpg) no-repeat center center fixed;
+    height: 100vh;
+}
+
+.logo {
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 20px;
+    margin-top: -100px;
+}
+
+.logo-placeholder {
+    padding: 5px;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: whitesmoke;
+
+}
+header h1 {
+    color: white;
+}
+@media (max-width: 901px) {
+    .logo {
+        border-radius: 50%;
+        max-width: 200px;
+        max-height: 200px;
+
+        margin-bottom: 20px;
+
+    }
+}
+
+
+
+
+/* SCROLL DOWN ICON */
+
+.icon-scroll,
+.icon-scroll:before {
+    position: absolute;
+    left: 50%;
+}
+.icon-scroll {
+    width: 40px;
+    height: 70px;
+    margin-left: -20px;
+    top: 90%;
+    margin-top: -35px;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 25px;
+}
+.icon-scroll:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    margin-left: -4px;
+    top: 8px;
+    border-radius: 4px;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+}
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(46px);
+        transform: translateY(46px);
+    }
+}
+@keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(46px);
+        transform: translateY(46px);
+    }
+}
+
+/* ABOUT ME */
+.red {
+    color: #fe554e;
+}
+.yellow {
+    color: #ffb52a;
+}
+.green {
+    color: #25c439;
+}
+.about-container {
+    min-height: 100vh;
+}
+
+.title-wrapper {
+    text-align: center;
+    padding-top: 40px;
+}
+.photo-text-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 50px;
+}
+.text-wrapper {
+    padding-left: 100px;
+}
+.text-wrapper h2 {
+    text-align: center;
+    padding: 10px;
+    color: #3897F0;
+}
+
+.photo-text-wrapper img {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.card-container {
+    border: solid 1px whitesmoke;
+    transition: 0.3s;
+    width: 30%;
+    border-radius: 5px;
+    margin:10px auto;
+    -webkit-animation:scaledown 0.3s linear;
+    -moz-animation:scaledown 0.3s linear;
+    animation:scaledown 0.2s linear;
+    transform-origin:50% 50%;
+    animation-fill-mode: forwards;
+}
+
+.card-container:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index:100;
+    -webkit-animation:scale 0.3s linear;
+    -moz-animation:scale 0.3s linear;
+    animation:scale 0.1s linear;
+    transform-origin:50% 50%;
+    animation-fill-mode: forwards;
+}
+
+.card-content {
+     padding: 0 16px;
+     /*font-size: 1.1em;*/
+     /*text-shadow:0 0 1px transparent;*/
+     /*line-height:22px;*/
+ }
+.card-content p {
+    padding: 15px 20px;
+}
+
+.card-content h2 {
+    text-align: center;
+}
+
+@keyframes scale{
+    0%{
+        transform:scale(1.0);
+    }
+    100%{
+        transform:scale(1.02);
+    }
+}
+
+@keyframes scaledown{
+    0%{
+        transform:scale(1.02);
+    }
+    100%{
+        transform:scale(1.0);
+    }
+}
+
+
+@media screen and (max-width: 868px) {
+    .title-wrapper {
+        text-align: center;
+        padding-top: 40px;
+    }
+    .photo-text-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px;
+        text-align: center;
+        justify-content: center;
+    }
+    .text-wrapper {
+        padding-left: 0;
+    }
+    .photo-text-wrapper img {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .card-container {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 690px) {
+    .card-container {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .card-container {
+        width: 80%;
+    }
+}
+
+
+/* Skill Cards */
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.card-wrapper {
+    display:flex;
+    border: solid 1px whitesmoke;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin:5px auto;
+    -webkit-animation:scaledown 0.3s linear;
+    -moz-animation:scaledown 0.3s linear;
+    animation:scaledown 0.2s linear;
+    transform-origin:50% 50%;
+    animation-fill-mode: forwards;
+    background-color: white;
+    width:200px;
+    min-height: 80px;
+}
+
+.card-wrapper:hover {
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15);
+    z-index:100;
+    -webkit-animation:scale 0.3s linear;
+    -moz-animation:scale 0.3s linear;
+    animation:scale 0.1s linear;
+    transform-origin:50% 50%;
+    animation-fill-mode: forwards;
+}
+
+.card-image img {
+    border-radius: 5px 0 0 5px;
+    max-height: 80px;
+    padding: 8px;
+}
+
+.card-content {
+    padding-left: 0;
+    padding-top:30px
+}
+.card-content h3 {
+    font-size: 0.9em;
+}
+
+@keyframes scale{
+    0%{
+        transform:scale(1.0);
+    }
+    100%{
+        transform:scale(1.02);
+    }
+}
+
+@keyframes scaledown{
+    0%{
+        transform:scale(1.02);
+    }
+    100%{
+        transform:scale(1.0);
+    }
+}
+
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.timeline-wrapper {
+    background:url(
+    https://images.unsplash.com/photo-1515444191438-5f8e0673efb9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=edca7f544a342bc64b097ad53fa60212&auto=format&fit=crop&w=1491&q=80
+    ) no-repeat center center fixed;
+    height: 100%;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    background-size: cover;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+        left: 15px;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+
+.gallery {
+    background-color: #fafafa;
+}
+
+.gallery-container {
+
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+}
+
+.heading {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    padding: 3.5rem 0;
+    color: #1a1a1a;
+}
+.heading2 {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    padding: 3.5rem 0;
+    color: #1a1a1a;
+}
+
+.heading-nopadding {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+
+    color: #1a1a1a;
+}
+
+.heading span {
+    display: block;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+}
+
+.gallery-item {
+    /* Minimum width of 24rem and grow to fit available space */
+    flex: 1 0 24rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+*/
+
+@supports (display: grid) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        grid-gap: 2rem;
+    }
+
+    .gallery,
+    .gallery-item {
+        margin: 0;
+    }
+}
+
+
+
+
+input[type=text], input[type=email], select, textarea {
+    font-size: 17px;
+    line-height: 1.23543;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 100%;
+    height: 3.3em;
+    margin-bottom: 14px;
+    padding-top: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #333;
+    text-align: left;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    background-clip: padding-box;
+}
+input[type=text]:hover, input[type=email]:hover, textarea:hover {
+    transform: scale(0.99);
+}
+
+input[type=submit] {
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    background-color: #0070c9;
+    background: linear-gradient(#42a1ec,#0070c9);
+    border-color: #07c;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    padding: 13px 15px 14px;
+}
+
+input[type=submit]:hover {
+    background-color: #147bcd;
+    background: linear-gradient(#51a9ee,#147bcd);
+    border-color: #1482d0;
+    text-decoration: none;
+}
+
+.contact-form-container {
+    max-width: 980px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #d6d6d6;
+}
+
+.contact-form-container h1{
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+
+footer {
+    background-color: #000;
+    padding-top: 44px!important;
+    text-align: center!important;
+    opacity: 0.60;
+    color:white;
+}
+
+footer:hover {
+    background-color: black;
+    opacity: 1;
+}
+
+.fa {
+    margin: 20px;
+    color: white;
+}
+
+.footer-btn {
+    border: 1px solid white;
+    padding: 5px 20px 5px 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: color 0.3s ease;
+}
+
+.footer-btn:hover {
+    color: #3897f0;
+    font-weight: 600;
+}
+
+
+.instagram:hover {
+    color: #e95950;
+    transition: color 0.3s ease;
+}
+
+.twitter:hover {
+    color: #54bbf5;
+    transition: color 0.3s ease;
+}
+
+.linkedin:hover {
+    color: #0282bd;
+    transition: color 0.3s ease;
+}
+
+footer p {
+      bottom: 0;
+      padding-bottom:10px;
+      padding-top: 30px;
+      font-size: 0.9rem
+  }
+
+
+footer a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.arrow
+{
+    position: relative;
+    left: 50%;
+    margin-left:-40px;
+    width: 80px;
+    height: 50px;
+
+    /**
+     * Dark Arrow Down
+     */
+    background-image: url(./img/arrow.png);
+    background-size: contain;
+}
+.features-wrapper a
+{
+    cursor: pointer;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
